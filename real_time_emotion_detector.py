@@ -44,3 +44,7 @@ def draw_face_bounding_box(video_frame, face_data):
     face_x, face_y, face_width, face_height = face_data['box']
     cv2.rectangle(video_frame, (face_x, face_y), (face_x + face_width, face_y + face_height), (0, 255, 0), 2)
     return face_x, face_y, face_width, face_height
+
+# 6. Display dominant emotion above bounding box
+def display_dominant_emotion(video_frame, face_x, face_y, dominant_emotion_label):
+    cv2.putText(video_frame, f'Emotion: {dominant_emotion_label.capitalize()}', (face_x, face_y - 10), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 0, 0), 2)
