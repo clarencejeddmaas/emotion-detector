@@ -57,5 +57,11 @@ def display_emotion_scores(video_frame, face_x, face_y, face_height, emotion_sco
                     (face_x, emotion_text_y_position), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         emotion_text_y_position += 15
 
-# 8. Show the video frame with the emotion detection
-    cv2.imshow('Emotion Detection', video_frame)
+# Main loop for real-time emotion detection
+while True:
+    # 8. Capture the video frame
+    video_frame = capture_frame()
+
+    # If frame is None, break the loop
+    if video_frame is None:
+        break
