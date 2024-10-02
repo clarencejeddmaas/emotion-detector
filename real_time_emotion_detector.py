@@ -38,3 +38,9 @@ def extract_emotion_data(face_data):
     emotion_scores = face_data["emotions"]
     dominant_emotion_label = max(emotion_scores, key=emotion_scores.get)
     return emotion_scores, dominant_emotion_label
+
+# 5. Draw a box around the face
+def draw_face_bounding_box(video_frame, face_data):
+    face_x, face_y, face_width, face_height = face_data['box']
+    cv2.rectangle(video_frame, (face_x, face_y), (face_x + face_width, face_y + face_height), (0, 255, 0), 2)
+    return face_x, face_y, face_width, face_height
