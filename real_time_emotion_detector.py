@@ -11,7 +11,7 @@ emotion_detector = FER()
 video_capture = cv2.VideoCapture(0)
 
 # Emotions that will be shown
-emotion_categories = ['Happy', 'Sad', 'Angry', 'Surprised', 'Neutral']
+emotion_categories = ['Happy', 'Sad', 'Angry', 'Surprise', 'Neutral']
 
 # 3. Capture video frame
 def capture_frame():
@@ -78,3 +78,11 @@ while True:
 
     # 10. Show the video frame with the emotion detection
     cv2.imshow('Emotion Detection', video_frame)
+
+    # 11. Exit the loop if the 'q' key is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Cleanup: release the capture and close the windows
+video_capture.release()
+cv2.destroyAllWindows()
