@@ -48,3 +48,11 @@ def draw_face_bounding_box(video_frame, face_data):
 # 6. Display dominant emotion above bounding box
 def display_dominant_emotion(video_frame, face_x, face_y, dominant_emotion_label):
     cv2.putText(video_frame, f'Emotion: {dominant_emotion_label.capitalize()}', (face_x, face_y - 10), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 0, 0), 2)
+
+# 7. Display all emotion scores below the bounding box
+def display_emotion_scores(video_frame, face_x, face_y, face_height, emotion_scores):
+    emotion_text_y_position = face_y + face_height + 10
+    for emotion_label, emotion_score in emotion_scores.items():
+        cv2.putText(video_frame, f'{emotion_label.capitalize()}: {emotion_score:.2f}', 
+                    (face_x, emotion_text_y_position), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+        emotion_text_y_position += 15
