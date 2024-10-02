@@ -75,3 +75,6 @@ while True:
         face_x, face_y, face_width, face_height = draw_face_bounding_box(video_frame, face_data)
         display_dominant_emotion(video_frame, face_x, face_y, dominant_emotion_label)
         display_emotion_scores(video_frame, face_x, face_y, face_height, emotion_scores)
+
+    # 10. Show the video frame with the emotion detection
+    cv2.imshow('Emotion Detection', video_frame)
