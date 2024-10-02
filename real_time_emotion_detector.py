@@ -65,3 +65,13 @@ while True:
     # If frame is None, break the loop
     if video_frame is None:
         break
+
+    # 9. Detect emotions in the captured frame
+    face_data = detect_emotions_in_frame(video_frame)
+    
+    if face_data:
+        # Extract emotion data and display
+        emotion_scores, dominant_emotion_label = extract_emotion_data(face_data)
+        face_x, face_y, face_width, face_height = draw_face_bounding_box(video_frame, face_data)
+        display_dominant_emotion(video_frame, face_x, face_y, dominant_emotion_label)
+        display_emotion_scores(video_frame, face_x, face_y, face_height, emotion_scores)
