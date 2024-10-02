@@ -31,3 +31,10 @@ def detect_emotions_in_frame(video_frame):
     if detected_faces:
         return detected_faces[0]
     return None
+
+# 4. Extract emotion data
+
+def extract_emotion_data(face_data):
+    emotion_scores = face_data["emotions"]
+    dominant_emotion_label = max(emotion_scores, key=emotion_scores.get)
+    return emotion_scores, dominant_emotion_label
