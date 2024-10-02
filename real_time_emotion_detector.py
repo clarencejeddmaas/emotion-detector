@@ -20,4 +20,14 @@ def capture_frame():
     # If the frame is not correctly captured, return None
     if not frame_captured:
         return None
-    return video_frame 
+    return video_frame
+
+# 4. Detect the emotions in frame
+def detect_emotions_in_frame(video_frame):
+
+    # Use the detector to find emotions in the frame
+    detected_faces = emotion_detector.detect_emotions(video_frame)
+
+    if detected_faces:
+        return detected_faces[0]
+    return None
