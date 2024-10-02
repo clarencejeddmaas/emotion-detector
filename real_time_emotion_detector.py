@@ -12,3 +12,12 @@ video_capture = cv2.VideoCapture(0)
 
 # Emotions that will be shown
 emotion_categories = ['Happy', 'Sad', 'Angry', 'Surprised', 'Neutral']
+
+# 3. Capture video frame
+def capture_frame():
+    frame_captured, video_frame = video_capture.read()
+
+    # If the frame is not correctly captured, return None
+    if not frame_captured:
+        return None
+    return video_frame 
